@@ -5,7 +5,7 @@ var server = require('http').createServer(app);
 app.use(express.static(__dirname + '/public'));
 var io = require('socket.io')(server);
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 80;
 server.listen(port, function () {
     console.log('Server start in ' + port);
 });
