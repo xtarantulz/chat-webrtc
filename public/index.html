@@ -1,0 +1,70 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta charset="utf-8">
+
+<title>VideoChat</title>
+
+<link rel="shortcut icon" href="favicon.ico" type="image/png">
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+<link href="/css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/additional.css" type="text/css" media="screen"/>
+
+<div id="root">
+    <section id='application'>
+        <section id="login">
+            <input type="text" placeholder="User name" class="login-input"/>
+            <div class="login-button">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+        </section>
+
+        <section id='main' class="fullscreen">
+            <!--<div class='expand'><i class='fa fa-expand' aria-hidden='true'></i></div>-->
+
+            <section id='onlineSection'>
+                <div class='online-div'></div>
+            </section>
+
+            <section id='chatSection'>
+                <div class='chat-div'></div>
+
+                <div class='tapping'></div>
+
+                <div class='text-div'>
+                    <div id='textInput' class='form-control' contentEditable='true' placeholder='Your text message...'
+                         required></div>
+                    <button class='smiles-button'>
+                        <i class='fa fa-smile-o' aria-hidden='true'></i>
+                    </button>
+                    <button type='submit'>
+                        <i class='fa fa-paper-plane' aria-hidden='true'></i>
+                    </button>
+                </div>
+            </section>
+
+            <section id='smilesSection'>
+                <div class='smiles-div'>
+                </div>
+            </section>
+
+            <section id='videoSection' class='hidden'>
+                <div class='other-video'>
+                    <video id='remoteVideo' autoPlay></video>
+                </div>
+                <div class='your-video'>
+                    <video id='localVideo' autoPlay muted></video>
+                </div>
+                <div class='controls'>
+                    <div class='end-call'><i class='fa fa-phone' aria-hidden='true'></i></div>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
+
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/webrtc.js"></script>
+
+<link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css" type="text/css" media="screen"/>
+<script type="text/javascript" src="/vendor/fancybox/jquery.fancybox.pack.js"></script>

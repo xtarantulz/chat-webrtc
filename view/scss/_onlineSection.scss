@@ -1,0 +1,46 @@
+#onlineSection {
+    overflow: auto;
+    box-sizing: border-box;
+    min-height: 600px;
+    max-height: 60%;
+    width: 200px;
+    background-color: rgba($light, .8);
+
+    .online-div{
+        animation: onlineAppearing .5s 1 linear;
+        .user {
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+            padding: 1em;
+            border-bottom: 1px solid rgba($dark, .1);
+            background-attachment: fixed;
+            font-weight: bold;
+            cursor: default;
+
+            align-items: center;
+
+            &:hover {
+                i {
+                    font-size: 1.3em;
+                }
+            }
+
+            i {
+                margin-right: 1em;
+                font-size: 0;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &.active {
+                    background: -webkit-linear-gradient($accent1, $accent2);
+                    -webkit-background-clip: text;
+                    color: $accent2;
+                    font-size: 1.3em;
+
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,571 @@
+@keyframes onlineAppearing {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    #application #main {
+        width: 100%;
+        height: 100%;
+    }
+
+    #application #login {
+        flex-direction: column-reverse;
+        width: 100%;
+        height: 100%;
+    }
+
+    #application #main .expand {
+        display: none;
+    }
+
+    #application #main #smilesSection {
+        display: none !important;
+        min-height: 40%;
+        max-height: 40%;
+        height: 40%;
+    }
+
+    #application #main #chatSection {
+        min-height: 60%;
+        max-height: 60%;
+        width: 100%;
+        height: 60%;
+    }
+
+    #application #main #chatSection .text-div .smiles-button {
+        display: none;
+    }
+
+    #application #main #onlineSection {
+        width: 100%;
+        height: 40%;
+        max-height: 40%;
+        min-height: 100px;
+    }
+
+    #application #main #onlineSection .online-div i {
+        font-size: 1.3em;
+    }
+
+    #application #main #videoSection {
+        width: 100%;
+        height: 60%;
+    }
+
+    #application #main #videoSection .other-video, #application #main #videoSection .your-video {
+        display: flex;
+    }
+
+    #application #main #videoSection .other-video video, #application #main #videoSection .your-video video {
+        max-width: 100%;
+    }
+}
+
+.expand {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0.5em;
+    background-color: rgba(18, 18, 18, 0.5);
+    color: white;
+    font-size: 1.2em;
+    opacity: 0.2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.expand:hover {
+    font-size: 1.5em;
+    opacity: 1;
+}
+
+#main.fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+#main.fullscreen #onlineSection {
+    max-height: 100%;
+    width: 20%;
+}
+
+#main.fullscreen #chatSection {
+    min-height: 10px;
+    max-height: 100%;
+    width: 80%;
+    height: 70%;
+}
+
+#main.fullscreen #chatSection .text-div .smiles-button {
+    display: none;
+}
+
+#main.fullscreen #chatSection .chat-div {
+    height: 100%;
+}
+
+#main.fullscreen #smilesSection {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block !important;
+    min-height: 30%;
+    width: 80%;
+    height: 30%;
+}
+
+#main.fullscreen #videoSection {
+    width: 80%;
+}
+
+#login {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: none;
+    margin: auto;
+    background: -webkit-linear-gradient(#CBBACC, #2580B3);
+    background-attachment: fixed;
+    box-shadow: 0 3px 10px #121212;
+    transition: 0.3s;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#login input.login-input {
+    margin: 0 auto;
+    padding: 1em;
+    width: 300px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#login div.login-button {
+    position: relative;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    color: white;
+    font-size: 5em;
+    cursor: pointer;
+}
+
+#login div.login-button i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#chatSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    max-height: 60%;
+    width: 640px;
+}
+
+#chatSection .chat-div {
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 1em;
+    height: 100%;
+    box-shadow: 2px -2px 5px rgba(18, 18, 18, 0.2) inset;
+    cursor: default;
+}
+
+#chatSection .chat-div .message-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 1em 0;
+    flex-wrap: wrap;
+}
+
+#chatSection .chat-div .message-wrapper:last-child {
+    margin-bottom: 2em;
+}
+
+#chatSection .chat-div .message-wrapper.my-message {
+    flex-direction: row-reverse;
+}
+
+#chatSection .chat-div .message-wrapper.my-message .message-block {
+    border-radius: 20px 0 20px 20px;
+}
+
+#chatSection .chat-div .message-wrapper .message-block {
+    box-sizing: border-box;
+    padding: 1em;
+    max-width: 400px;
+    border-radius: 0 20px 20px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 3px 5px rgba(18, 18, 18, 0.1);
+}
+
+#chatSection .chat-div .message-wrapper .message-block .date {
+    display: block;
+    margin: 0.5em 0 0;
+    width: 100%;
+    text-align: right;
+}
+
+#chatSection .chat-div .message-wrapper .message-block:hover .date {
+    font-size: 0.7em;
+}
+
+#chatSection .chat-div .message-wrapper .message-block.private {
+    background-color: white;
+}
+
+#chatSection .chat-div .message-wrapper .message-block.private .text {
+    filter: blur(4px);
+}
+
+#chatSection .chat-div .message-wrapper .message-block.private:hover .text {
+    filter: blur(0px);
+}
+
+#chatSection .chat-div .message-wrapper .message-block .text {
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+#chatSection .chat-div .message-wrapper .message-block .text img {
+    margin: 1em 0;
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 20px;
+}
+
+#chatSection .chat-div .message-wrapper .message-block .date {
+    margin-right: 1em;
+    color: rgba(18, 18, 18, 0.5);
+    font-size: 0;
+    transition: 0.3s;
+}
+
+#chatSection .chat-div .message-wrapper .message-block small {
+    opacity: 0.5;
+}
+
+#chatSection .chat-div .message-wrapper .message-block .from,
+#chatSection .chat-div .message-wrapper .message-block .to {
+    font-weight: bold;
+}
+
+#chatSection .tapping {
+    position: absolute;
+    bottom: 5.5em;
+    left: 1em;
+    display: table;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0.7;
+}
+
+#chatSection .text-div {
+    display: flex;
+    box-sizing: border-box;
+    min-height: 80px;
+    max-height: 200px;
+    background-color: white;
+    justify-content: space-between;
+}
+
+#chatSection .text-div #textInput {
+    position: relative;
+    overflow: auto;
+    padding: 1.9em 1em;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    word-wrap: break-word;
+    transition: 0.3s;
+}
+
+#chatSection .text-div #textInput:before {
+    display: none;
+    color: transparent;
+    content: "Your text message...";
+    cursor: text;
+    transition: 0.3s;
+}
+
+#chatSection .text-div #textInput:empty:before {
+    display: block;
+    margin: auto 0;
+    color: rgba(18, 18, 18, 0.7);
+    content: "Your text message...";
+}
+
+#chatSection .text-div #textInput:not(:focus):empty:before {
+    display: block;
+    margin: auto 0;
+    color: rgba(18, 18, 18, 0.7);
+    content: "Your text message...";
+}
+
+#chatSection .text-div #textInput:focus:before {
+    display: none;
+}
+
+#chatSection .text-div button[type=submit] {
+    padding: 1em;
+    max-width: 100px;
+    width: 15%;
+    border: none;
+    background: -webkit-linear-gradient(#CBBACC, #2580B3);
+    -webkit-background-clip: text;
+    color: #2580B3;
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#chatSection .text-div button[type=submit] i {
+    background: -webkit-linear-gradient(#CBBACC, #2580B3);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    transition: 0.3s;
+    -webkit-text-fill-color: transparent;
+}
+
+#chatSection .text-div button[type=submit]:hover i {
+    background-attachment: local;
+    opacity: 0.8;
+}
+
+#chatSection .text-div button.smiles-button {
+    padding: 1em;
+    max-width: 100px;
+    width: 15%;
+    border: none;
+    background-color: white;
+    color: #2580B3;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#chatSection .text-div button.smiles-button i {
+    background: -webkit-linear-gradient(#CBBACC, #2580B3);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    transition: 0.3s;
+    -webkit-text-fill-color: transparent;
+}
+
+#chatSection .text-div button.smiles-button i.active {
+    background: -webkit-linear-gradient(#2580B3, #CBBACC);
+    -webkit-background-clip: text;
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+    -webkit-text-fill-color: transparent;
+}
+
+#chatSection .text-div button.smiles-button:hover i {
+    background-attachment: local;
+    opacity: 0.8;
+}
+
+#onlineSection {
+    overflow: auto;
+    box-sizing: border-box;
+    min-height: 600px;
+    max-height: 60%;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#onlineSection .online-div {
+    animation: onlineAppearing .5s 1 linear;
+}
+
+#onlineSection .online-div .user {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 1em;
+    border-bottom: 1px solid rgba(18, 18, 18, 0.1);
+    background-attachment: fixed;
+    font-weight: bold;
+    cursor: default;
+    align-items: center;
+}
+
+#onlineSection .online-div .user:hover i {
+    font-size: 1.3em;
+}
+
+#onlineSection .online-div .user i {
+    margin-right: 1em;
+    font-size: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#onlineSection .online-div .user i.active {
+    background: -webkit-linear-gradient(#CBBACC, #2580B3);
+    -webkit-background-clip: text;
+    color: #2580B3;
+    font-size: 1.3em;
+    -webkit-text-fill-color: transparent;
+}
+
+#smilesSection {
+    display: none;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: .5em;
+    max-height: 20%;
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.8);
+    content: '';
+    font-size: 19px;
+}
+
+#smilesSection span {
+    display: inline-block;
+    margin: 0.1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#smilesSection span:hover {
+    text-shadow: 3px 3px 10px black;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+}
+
+#videoSection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    width: 640px;
+    background-color: rgba(18, 18, 18, 0.5);
+    cursor: ns-resize;
+    transition: 0.3s;
+    transform: scale(1);
+    flex-wrap: wrap;
+}
+
+#videoSection.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+}
+
+#videoSection .your-video {
+    transform: rotateY(180deg);
+}
+
+#videoSection .other-video,
+#videoSection .your-video {
+    display: table;
+    width: 50%;
+    text-align: center;
+}
+
+#videoSection .other-video video,
+#videoSection .your-video video {
+    margin: auto;
+    min-height: 120px;
+    max-width: 400px;
+    max-height: 400px;
+    width: 90%;
+    background-image: url("../images/userpic.png");
+    background-position: center center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
+
+#videoSection .controls {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#videoSection .controls .end-call {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #D7263D;
+    box-shadow: 0 5px 15px rgba(18, 18, 18, 0.4);
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#videoSection .controls .end-call:hover {
+    background-color: #ac1e31;
+    box-shadow: 0 10px 20px rgba(18, 18, 18, 0.2);
+    transform: scale(1.1);
+}
+
+#videoSection .controls .end-call:active {
+    background-color: #801724;
+    box-shadow: 0 3px 7px rgba(18, 18, 18, 0.7);
+    transform: scale(0.9);
+}
+
+#videoSection .controls .end-call i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+    background-color: #eee;
+}
+
+#main {
+    position: relative;
+    display: none;
+    flex-direction: row;
+    margin: auto;
+    width: 840px;
+    background: -webkit-linear-gradient(#CBBACC, #2580B3);
+    background-attachment: fixed;
+    box-shadow: 0 3px 10px #121212;
+    transition: 0.3s;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#application {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+*,
+*:focus,
+*:hover {
+    outline: none;
+}

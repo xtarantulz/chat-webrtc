@@ -1,0 +1,25 @@
+#smilesSection {
+    display: none;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: .5em;
+    max-height: 20%;
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255,255,255, .8);
+    content: '';
+    font-size: 19px;
+
+    span {
+        display: inline-block;
+        margin: 0.1em;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            text-shadow: 3px 3px 10px black;
+            transform: scale(2);
+            transform-origin: 50% 50%;
+        }
+    }
+}

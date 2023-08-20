@@ -1,0 +1,23 @@
+{
+  "name": "video-chat-test",
+  "version": "1.0.0",
+  "description": "A simple text/video chat for presentation",
+  "main": "index.js",
+  "author": "Vladimir Batrakov & Daniel Votintsev",
+  "private": true,
+  "license": "BSD",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "express": "^4.17.1",
+    "forever": "^1.0.0",
+    "nodemon": "^1.19.4",
+    "path": "^0.12.7",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "socket.io-react": "^1.2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

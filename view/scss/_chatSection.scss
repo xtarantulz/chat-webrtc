@@ -1,0 +1,230 @@
+#chatSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    max-height: 60%;
+    width: 640px;
+
+
+    .chat-div {
+        overflow: auto;
+        box-sizing: border-box;
+        padding: 1em;
+        height: 100%;
+        box-shadow: 2px -2px 5px rgba($dark, .2) inset;
+        cursor: default;
+
+        .message-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin: 1em 0;
+
+            flex-wrap: wrap;
+
+            &:last-child {
+                margin-bottom: 2em;
+            }
+
+            &.my-message {
+                flex-direction: row-reverse;
+
+                .message-block {
+                    border-radius: 20px 0 20px 20px;
+                }
+            }
+
+            .message-block {
+                box-sizing: border-box;
+                padding: 1em;
+                max-width: 400px;
+                border-radius: 0 20px 20px 20px;
+                background-color: rgba($light, .5);
+                box-shadow: 0 3px 5px rgba($dark, .1);
+
+                .date {
+                    display: block;
+                    margin: 0.5em 0 0;
+                    width: 100%;
+                    text-align: right;
+                }
+
+                &:hover {
+                    .date {
+                        font-size: 0.7em;
+                    }
+                }
+
+                &.private {
+                    background-color: rgba($light, 1);
+
+                    .text {
+                        filter: blur(4px);
+                    }
+
+                    &:hover {
+                        .text {
+                            filter: blur(0px);
+                        }
+                    }
+                }
+
+                .text {
+                    max-width: 400px;
+                    word-wrap: break-word;
+
+                    img {
+                        margin: 1em 0;
+                        max-width: 100%;
+                        max-height: 300px;
+                        border-radius: 20px;
+                    }
+                }
+
+                .date {
+                    margin-right: 1em;
+                    color: rgba($dark, .5);
+                    font-size: 0;
+                    transition: 0.3s;
+                }
+
+                small {
+                    opacity: 0.5;
+                }
+
+                .from,
+                .to {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .tapping {
+        position: absolute;
+        bottom: 5.5em;
+        left: 1em;
+        display: table;
+        color: rgba($light, .7);
+        opacity: 0.7;
+    }
+
+    .text-div {
+        display: flex;
+        box-sizing: border-box;
+        min-height: 80px;
+        max-height: 200px;
+        background-color: white;
+
+        justify-content: space-between;
+
+        #textInput {
+            position: relative;
+            overflow: auto;
+            padding: 1.9em 1em;
+            width: 100%;
+            background-color: rgba($light, .5);
+            word-wrap: break-word;
+            transition: 0.3s;
+
+            &:before {
+                display: none;
+                color: transparent;
+                content: "Your text message...";
+                cursor: text;
+                transition: 0.3s;
+            }
+
+            &:empty {
+                &:before {
+                    display: block;
+                    margin: auto 0;
+                    color: rgba($dark, .7);
+                    content: "Your text message...";
+                }
+            }
+
+            &:not(:focus) {
+                &:empty {
+                    &:before {
+                        display: block;
+                        margin: auto 0;
+                        color: rgba($dark, .7);
+                        content: "Your text message...";
+                    }
+                }
+            }
+            &:focus{
+                &:before{
+                    display: none;
+                }
+            }
+        }
+
+        button[type=submit] {
+            padding: 1em;
+            max-width: 100px;
+            width: 15%;
+            border: none;
+            background: -webkit-linear-gradient($accent1, $accent2);
+            -webkit-background-clip: text;
+            color: $accent2;
+            font-weight: bold;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: 0.3s;
+
+            i {
+                background: -webkit-linear-gradient($accent1, $accent2);
+                background-attachment: fixed;
+                -webkit-background-clip: text;
+                transition: 0.3s;
+
+                -webkit-text-fill-color: transparent;
+            }
+
+            &:hover {
+                i {
+                    background-attachment: local;
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        button.smiles-button {
+            padding: 1em;
+            max-width: 100px;
+            width: 15%;
+            border: none;
+            background-color: $light;
+            color: $accent2;
+            font-size: 1.5em;
+            cursor: pointer;
+
+            i {
+                background: -webkit-linear-gradient($accent1, $accent2);
+                background-attachment: fixed;
+                -webkit-background-clip: text;
+                transition: 0.3s;
+
+                -webkit-text-fill-color: transparent;
+
+                &.active {
+                    background: -webkit-linear-gradient($accent2, $accent1);
+                    -webkit-background-clip: text;
+                    transform: scale(1.2);
+                    transform-origin: 50% 50%;
+
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+
+            &:hover {
+                i {
+                    background-attachment: local;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.expand {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0.5em;
+    background-color: rgba(18, 18, 18, 0.5);
+    color: white;
+    font-size: 1.2em;
+    opacity: 0.2;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        font-size: 1.5em;
+        opacity: 1;
+    }
+}
