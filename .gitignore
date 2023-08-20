@@ -3,3 +3,4 @@
 /.sass-cache/
 .DS_Store
 /1.txt
+/package-lock.json
